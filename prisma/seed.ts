@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("Seeding database...");
+
 
   // --- 1. Clean up existing data ---
   // The order is important to avoid foreign key constraint errors!
@@ -14,7 +14,7 @@ async function main() {
   await prisma.order.deleteMany();
   await prisma.product.deleteMany(); // Deleting products also clears the many-to-many wishlist relation
   await prisma.user.deleteMany();
-  console.log("Cleared existing data.");
+
 
   // --- 2. Create Users (Admin and Regular) ---
   const hashedPasswordAdmin = await bcrypt.hash("admin123", 10);
@@ -36,7 +36,7 @@ async function main() {
       role: "USER",
     },
   });
-  console.log("Created users:", { adminUser, regularUser });
+
 
   // --- 3. Create Products ---
   const products = [
@@ -94,7 +94,7 @@ async function main() {
   const createdProducts = await prisma.$transaction(
     products.map((product) => prisma.product.create({ data: product }))
   );
-  console.log(`Created ${createdProducts.length} products.`);
+
 
   // --- 4. Create Reviews for some products ---
   const reviews = [

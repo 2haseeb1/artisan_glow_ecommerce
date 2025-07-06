@@ -1,7 +1,7 @@
 // app/api/cart/route.ts
 import { NextResponse } from "next/server";
 import { auth } from "@/app/api/auth/[...nextauth]/route"; // Using NextAuth session
-import { prisma } from "@/lib/prisma";
+
 
 // This is a simplified version. A real cart would be more complex.
 // For this example, we'll just log the action.
@@ -26,9 +26,7 @@ export async function POST(request: Request) {
 
     // In a real app, you would find the user's cart and add/update the item.
     // e.g., await prisma.cartItem.upsert(...)
-    console.log(
-      `User ${session.user.id} added ${quantity} of product ${productId} to cart.`
-    );
+  
 
     return NextResponse.json({ success: true, message: "Item added to cart" });
   } catch (error) {

@@ -9,7 +9,7 @@ type WishlistButtonProps = {
   productId: string;
 };
 
-export default function WishlistButton({ productId }: WishlistButtonProps) {
+export default function WishlistButton({ }: WishlistButtonProps) {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -17,7 +17,7 @@ export default function WishlistButton({ productId }: WishlistButtonProps) {
     setIsSubmitting(true);
     setIsWishlisted(!isWishlisted);
     
-    console.log(`TODO: Implement backend logic for product ID: ${productId}`);
+ 
 
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
