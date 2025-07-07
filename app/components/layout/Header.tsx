@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { auth } from '@/api/auth/[...nextauth]/route'; // To get the user session
+import { auth } from '@/lib/auth'; // <-- নতুন এবং সঠিক ঠিকানা// To get the user session
 
 
 // A helper component for the cart icon to keep the logic clean
@@ -75,7 +75,7 @@ export default async function Header() {
               </Link>
               <form action={async () => {
                 'use server';
-                const { signOut } = await import('@/api/auth/[...nextauth]/route');
+              const { signOut } = await import('@/lib/auth');
                 await signOut({ redirectTo: '/' });
               }}>
                 <button type="submit" className="text-gray-600 hover:text-gray-900 transition">Sign Out</button>

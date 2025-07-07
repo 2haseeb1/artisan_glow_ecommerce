@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev && generate",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": " tsx prisma/seed.ts"
+    "seed": " tsx prisma/seed.ts",
+    "generate":"npx prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.10.0",

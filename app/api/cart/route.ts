@@ -1,6 +1,6 @@
 // app/api/cart/route.ts
 import { NextResponse } from "next/server";
-import { auth } from "@/app/api/auth/[...nextauth]/route"; // Using NextAuth session
+import { auth } from '@/lib/auth'; // <-- নতুন এবং সঠিক ঠিকানা // Using NextAuth session
 
 
 // This is a simplified version. A real cart would be more complex.
